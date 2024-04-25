@@ -1,0 +1,18 @@
+<p>currencies-list works!</p>
+<table>
+  <tr>
+    <th>codigo</th>
+    <th>pais</th>
+
+  </tr>
+
+  <tr *ngFor="let code of codes" > <td>{{code[0] }}</td> <td >{{code[1]}}</td> </tr>
+
+
+
+  <mat-paginator [length]="100"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]"
+                 aria-label="Select page">
+  </mat-paginator>
+</table>
