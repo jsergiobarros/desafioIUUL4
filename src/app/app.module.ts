@@ -6,17 +6,23 @@ import { CurrenciesListComponent } from './components/currenciesList/currencies-
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import { CurrencieConverterComponent } from './components/currencie-converter/currencie-converter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CurrenciesListComponent
+    CurrenciesListComponent,
+    CurrencieConverterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

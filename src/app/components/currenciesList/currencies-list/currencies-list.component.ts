@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ExchangeService} from "../../../../assets/service/exchange/exchange.service";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-currencies-list',
@@ -8,6 +9,7 @@ import {ExchangeService} from "../../../../assets/service/exchange/exchange.serv
 })
 export class CurrenciesListComponent {
   codes:any[]=[]
+
   constructor(
     private exchangeService : ExchangeService
   ) {

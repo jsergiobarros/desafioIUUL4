@@ -1,0 +1,23 @@
+<mat-form-field>
+  <mat-label>Origem</mat-label>
+  <mat-select>
+
+    <!--      @for (code of codes; track code) {-->
+    <!--      <mat-option [value]="state">{{code[0]}}</mat-option>-->
+    <!--      }-->
+
+    <mat-option *ngFor="let code of codes" [value]="code[0]">{{code[1]}}({{code[0]}})</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Destino</mat-label>
+  <mat-select>
+
+    <!--      @for (code of codes; track code) {-->
+    <!--      <mat-option [value]="state">{{code[0]}}</mat-option>-->
+    <!--      }-->
+
+    <mat-option *ngFor="let code of codes" [value]="code[0]">{{code[1]}}({{code[0]}})</mat-option>
+  </mat-select>
+</mat-form-field>

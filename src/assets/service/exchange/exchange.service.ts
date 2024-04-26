@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, tap} from "rxjs";
+import {FormControl} from "@angular/forms";
 
 
 @Injectable({
@@ -12,10 +13,15 @@ export class ExchangeService {
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
-  getCurrencyList(){
+  getCurrencyList():Observable<object>{
     // @ts-ignore
-    console.log(this.http.get(`${this.url}/codes/`).subscribe(response=>console.log(response)))
+
     return this.http.get(`${this.url}/codes/`)
   }
+  getCurrencyDuo(origem:String,destino:String):Observable<object>{
+    // @ts-ignore
 
+    return this.http.get(`${this.url}/pair/${origem}/${destino}`)
+
+  }
 }
