@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ExchangeService} from "../../../assets/service/exchange/exchange.service";
+import {MatInputModule} from "@angular/material/input";
 
 @Component({
   selector: 'app-currencie-converter',
@@ -7,14 +8,15 @@ import {ExchangeService} from "../../../assets/service/exchange/exchange.service
   styleUrls: ['./currencie-converter.component.css']
 })
 export class CurrencieConverterComponent {
-  codes:any[]=[]
+  @Input()  codes:Array<[String,String]>[]=[]
 
   constructor(
     private exchangeService : ExchangeService
   ) {
     console.log('teste componente')
     // @ts-ignore
-    this.exchangeService.getCurrencyList().subscribe(e=>{this.codes= e.supported_codes})
+    this.exchangeService.getCurrencyList().subscribe(e=>{
+      this.codes= e.supported_codes})
 
   }
 }

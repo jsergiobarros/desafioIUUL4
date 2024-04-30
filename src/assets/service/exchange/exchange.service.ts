@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, tap} from "rxjs";
 import {FormControl} from "@angular/forms";
+import {CodesView} from "../../models/codes-view";
 
 
 @Injectable({
@@ -13,7 +14,7 @@ export class ExchangeService {
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
-  getCurrencyList():Observable<object>{
+  getCurrencyList():Observable<CodesView>{
     // @ts-ignore
 
     return this.http.get(`${this.url}/codes/`)

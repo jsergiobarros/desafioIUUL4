@@ -1,23 +1,22 @@
-<mat-form-field>
-  <mat-label>Origem</mat-label>
-  <mat-select>
+<ng-container >
+  <mat-form-field style="padding-right: 20px">
+    <mat-label>Moeda Origem *</mat-label>
+    <mat-select>
 
-    <!--      @for (code of codes; track code) {-->
-    <!--      <mat-option [value]="state">{{code[0]}}</mat-option>-->
-    <!--      }-->
+      <mat-option *ngFor="let code of codes" [value]="code[0]">{{code[1]}} ({{code[0]}})</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <mat-option *ngFor="let code of codes" [value]="code[0]">{{code[1]}}({{code[0]}})</mat-option>
-  </mat-select>
-</mat-form-field>
+  <mat-form-field  style="padding-right: 20px">
+    <mat-label>Moeda Destino *</mat-label>
+    <mat-select>
 
-<mat-form-field>
-  <mat-label>Destino</mat-label>
-  <mat-select>
+      <mat-option *ngFor="let code of codes" [value]="code[0]">{{code[1]}} ({{code[0]}})</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <!--      @for (code of codes; track code) {-->
-    <!--      <mat-option [value]="state">{{code[0]}}</mat-option>-->
-    <!--      }-->
 
-    <mat-option *ngFor="let code of codes" [value]="code[0]">{{code[1]}}({{code[0]}})</mat-option>
-  </mat-select>
-</mat-form-field>
+
+
+</ng-container>
+

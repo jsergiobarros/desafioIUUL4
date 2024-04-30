@@ -9,6 +9,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import { CurrencieConverterComponent } from './components/currencie-converter/currencie-converter.component';
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CurrencieConverterComponent } from './components/currencie-converter/cu
     BrowserAnimationsModule,
     MatPaginatorModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
