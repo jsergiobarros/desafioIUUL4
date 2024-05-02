@@ -18,16 +18,6 @@ export class CurrenciesListComponent implements AfterViewInit{
   constructor(
     private exchangeService : ExchangeService
   ) {
-  }
-  dataSource = new MatTableDataSource<SupportedCodes>(this.codes);
-
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
-  ngAfterViewInit() {
-    // @ts-ignore
-    this.dataSource.paginator = this.paginator;
-  }
-  ngOnInit(){
-    // @ts-ignore
     this.exchangeService.getCurrencyList().subscribe(e=>{
       for (let currency of e.supported_codes){
 
@@ -37,6 +27,14 @@ export class CurrenciesListComponent implements AfterViewInit{
 
     })
   }
+  dataSource = new MatTableDataSource<SupportedCodes>(this.codes);
+
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  ngAfterViewInit() {
+    // @ts-ignore
+    this.dataSource.paginator = this.paginator;
+  }
+
 
 
 
