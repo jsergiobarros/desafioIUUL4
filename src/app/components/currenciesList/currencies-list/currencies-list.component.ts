@@ -19,11 +19,11 @@ export class CurrenciesListComponent implements AfterViewInit{
     private exchangeService : ExchangeService
   ) {
     this.exchangeService.getCurrencyList().subscribe(e=>{
-      for (let currency of e.supported_codes){
-
+      e.supported_codes.map((x)=>{
         // @ts-ignore
-        this.codes.push({code:currency[0],description:currency[1]})
-      }
+        this.codes.push({code:x[0],description:x[1]})
+      })
+
 
     })
   }

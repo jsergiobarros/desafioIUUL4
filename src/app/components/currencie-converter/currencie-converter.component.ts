@@ -9,11 +9,13 @@ import {MatInputModule} from "@angular/material/input";
 })
 export class CurrencieConverterComponent {
   @Input()  codes:Array<[String,String]>[]=[]
+  origem='BRL'
+  destino='USD'
 
   constructor(
     private exchangeService : ExchangeService
   ) {
-    console.log('teste componente')
+
     // @ts-ignore
     this.exchangeService.getCurrencyList().subscribe(e=>{
       this.codes= e.supported_codes})

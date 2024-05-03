@@ -10,12 +10,23 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import { CurrencieConverterComponent } from './components/currencie-converter/currencie-converter.component';
 import {MatTableModule} from "@angular/material/table";
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { ListPageComponent } from './pages/list-page/list-page.component';
+import { ConvertPageComponent } from './pages/convert-page/convert-page.component';
+import {RouterOutlet} from "@angular/router";
+import { HeaderComponent } from './components/header/header.component';
+import { AppRoutingModule} from "./app-routing.module";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     CurrenciesListComponent,
-    CurrencieConverterComponent
+    CurrencieConverterComponent,
+    LandingPageComponent,
+    ListPageComponent,
+    ConvertPageComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +35,10 @@ import {MatTableModule} from "@angular/material/table";
     MatPaginatorModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+    RouterOutlet,
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

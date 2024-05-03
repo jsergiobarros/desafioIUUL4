@@ -1,7 +1,7 @@
 <ng-container >
   <mat-form-field style="padding-right: 20px">
     <mat-label>Moeda Origem *</mat-label>
-    <mat-select>
+    <mat-select [(ngModel)]="origem">
 
       <mat-option *ngFor="let code of codes" [value]="code[0]">{{code[1]}} ({{code[0]}})</mat-option>
     </mat-select>
@@ -9,11 +9,14 @@
 
   <mat-form-field  style="padding-right: 20px">
     <mat-label>Moeda Destino *</mat-label>
-    <mat-select>
+    <mat-select [(ngModel)]="destino">
 
       <mat-option *ngFor="let code of codes" [value]="code[0]">{{code[1]}} ({{code[0]}})</mat-option>
     </mat-select>
   </mat-form-field>
+
+
+
 
 
 
