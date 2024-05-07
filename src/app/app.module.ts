@@ -17,6 +17,7 @@ import {RouterOutlet} from "@angular/router";
 import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule} from "./app-routing.module";
 import {FormsModule} from "@angular/forms";
+import { ConvertionsListComponent } from './components/convertions-list/convertions-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {FormsModule} from "@angular/forms";
     LandingPageComponent,
     ListPageComponent,
     ConvertPageComponent,
-    HeaderComponent
+    HeaderComponent,
+    ConvertionsListComponent
   ],
   imports: [
     BrowserModule,

@@ -21,4 +21,22 @@ export class CurrencieConverterComponent {
       this.codes= e.supported_codes})
 
   }
+  changeCurencie(novo:string, onde:string){
+    if(onde==="origem"){
+      this.origem=novo
+    }
+    if(onde==="destino"){
+      this.destino=novo
+    }
+
+  }
+  convert(){
+    let input=document.getElementById("input-element")as HTMLInputElement
+
+    this.exchangeService.getCurrencyDuo(this.origem,this.destino,input.value).subscribe(e=>{
+      console.log(e.conversion_result, e.target_code,e.base_code)
+      input.value=''
+    })
+
+  }
 }

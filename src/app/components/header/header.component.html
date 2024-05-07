@@ -3,21 +3,30 @@
   <div class="container-fluid">
     <img
       width="40"
-      alt="Angular Logo"
+      alt="Currencies Logo"
       src="https://cdn-icons-png.flaticon.com/512/1027/1027961.png"
     />
     <a class="navbar-brand" (click)="onClick(home,convert,list)" routerLink="/"> Conversor de Moedas</a>
 
+
+
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <i class="bi bi-list"></i>
+    </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav nav-pills me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a #home class="nav-link" aria-current="page" (click)="onClick(home,convert,list)" routerLink="/">Home</a>
+          <a #home class="nav-link primary-color list-group-item list-group-item-action" aria-current="page" (click)="onClick(home,convert,list)" routerLink="/">Home</a>
         </li>
         <li class="nav-item">
-          <a #convert class="nav-link" (click)="onClick(convert,list,home)" routerLink="/convert">Converter</a>
+          <a #convert class="nav-link primary-color list-group-item list-group-item-action" (click)="onClick(convert,list,home)" routerLink="/convert">Converter</a>
         </li>
         <li class="nav-item">
-          <a #list class="nav-link" (click)="onClick(list,home,convert)"  routerLink="/list">listar</a>
+          <a #list class="nav-link primary-color list-group-item list-group-item-action" (click)="onClick(list,home,convert)"  routerLink="/list">listar</a>
         </li>
       </ul>
     </div>
