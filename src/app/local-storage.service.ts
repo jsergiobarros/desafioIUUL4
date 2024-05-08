@@ -8,6 +8,7 @@ export class LocalStorageService {
   constructor() {
     this.storage = window.localStorage;
   }
+
   set(key:string,value:any){
     this.storage.setItem(key,JSON.stringify(value))
   }
