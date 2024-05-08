@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ConversionElement} from "../../../assets/classes/conversion-element";
 
 @Component({
   selector: 'app-convertions-list',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./convertions-list.component.css']
 })
 export class ConvertionsListComponent {
+  conversions:ConversionElement[]=[]
+  print(i:ConversionElement){
+    this.conversions.push(i)
+    console.log(this.conversions)
+  }
 
+  removeItem(i:number){
+    this.conversions.splice(i,1)
+  }
 }

@@ -18,6 +18,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule} from "./app-routing.module";
 import {FormsModule} from "@angular/forms";
 import { ConvertionsListComponent } from './components/convertions-list/convertions-list.component';
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { ConvertionsListComponent } from './components/convertions-list/converti
     MatTableModule,
     RouterOutlet,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,13 +1,13 @@
 export interface Conversion {
-  result: String,
-  documentation: String,
-  terms_of_use: String,
+  result: string,
+  documentation: string,
+  terms_of_use: string,
   time_last_update_unix: Date,
-  time_last_update_utc: String,
+  time_last_update_utc: string,
   time_next_update_unix: Date,
-  time_next_update_utc: String,
-  base_code: String,
-  target_code: String,
+  time_next_update_utc: string,
+  base_code: string,
+  target_code: string,
   conversion_rate: number
   "conversion_result": number
 }

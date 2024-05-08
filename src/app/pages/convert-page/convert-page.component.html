@@ -1,3 +1,3 @@
 <p>convert-page works!</p>
-<app-currencie-converter></app-currencie-converter>
-<app-convertions-list></app-convertions-list>
+<app-currencie-converter (conversionEvent)="addItem($event)"></app-currencie-converter>
+<app-convertions-list #conversionList></app-convertions-list>

@@ -15,15 +15,23 @@
     </mat-select>
   </mat-form-field>
 
-  <input
-    id="input-element"
-    type='number'
-    value=""
-    autocomplete="off"
-    placeholder="teste"
-  />
+  <mat-form-field>
+    <mat-label>Valor *</mat-label>
+    <input matInput
+           id="input-element"
+           type='number'
+           (keyup)="onValueType()"
+           value=""
+           autocomplete="off"
+
+          >
+    <span matPrefix>{{origem}}</span>
+  </mat-form-field>
+
+
+
   <p></p>
-  <button style="border-radius: 2vh" mat-stroked-button (click)="convert()">Converter</button>
+  <button id="converter" disabled style="border-radius: 2vh" mat-stroked-button (click)="convert()">Converter</button>
 
 
 
