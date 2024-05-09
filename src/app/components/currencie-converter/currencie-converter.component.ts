@@ -49,6 +49,8 @@ export class CurrencieConverterComponent {
     this.exchangeService.getCurrencyDuo(this.origem,this.destino,input.value).subscribe(e=>{
       this.conversionEvent.emit(new ConversionElement(e,parseInt( input.value)))
       input.value=''
+      let button=document.getElementById('converter') as HTMLButtonElement
+      button.disabled=true
     })
 
 
