@@ -20,6 +20,7 @@ import {FormsModule} from "@angular/forms";
 import { ConversionsListComponent } from './components/conversions-list/conversions-list.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
+import {MatSortModule} from "@angular/material/sort";
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {MatIconModule} from "@angular/material/icon";
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    MatSortModule
 
   ],
   providers: [],
