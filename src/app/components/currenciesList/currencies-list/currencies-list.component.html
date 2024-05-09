@@ -1,21 +1,8 @@
-<p>currencies-list works!</p>
-<table>
-  <tr>
-    <th>codigo</th>
-    <th>pais</th>
-
-  </tr>
-
-<!--  <tr *ngFor="let code of codes" > <td>{{code[0] }}</td> <td >{{code[1]}}</td> </tr>-->
 
 
 
-
-</table>
-
-
-<div class="mat-elevation-z8">
-  <table *ngIf="codes.length>0" mat-table [dataSource]="dataSource">
+<div *ngIf="codes.length>0" class="mat-elevation-z8">
+  <table  mat-table [dataSource]="dataSource">
 
     <!-- Position Column -->
     <ng-container matColumnDef="code">

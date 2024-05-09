@@ -11,28 +11,21 @@ import {MatPaginator} from "@angular/material/paginator";
   styleUrls: ['./currencies-list.component.css']
 })
 export class CurrenciesListComponent implements AfterViewInit{
-  @Input()  codes:SupportedCodes[]=[]
+  codes:SupportedCodes[]=[]
 
   displayedColumns: string[] = ['code', 'description'];
+  dataSource: MatTableDataSource<SupportedCodes>  ;
+  constructor( ) {
 
-  constructor(
-    private exchangeService : ExchangeService
-  ) {
-    this.exchangeService.getCurrencyList().subscribe(e=>{
-      e.supported_codes.map((x)=>{
-        // @ts-ignore
-        this.codes.push({code:x[0],description:x[1]})
-      })
-
-
-    })
+    this.codes=JSON.parse(localStorage.getItem('codes') as string).list
+    this.dataSource=new MatTableDataSource<SupportedCodes>(this.codes)
   }
-  dataSource = new MatTableDataSource<SupportedCodes>(this.codes);
+
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   ngAfterViewInit() {
-    // @ts-ignore
-    this.dataSource.paginator = this.paginator;
+
+    this.dataSource.paginator = this.paginator as MatPaginator;
   }
 
 
