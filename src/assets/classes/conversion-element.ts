@@ -1,7 +1,7 @@
 import {Conversion} from "../models/conversion";
 
 export class ConversionElement {
-  conversionDate:Date
+  conversionDate:string
   conversionTime:string
   value:number
   origin:string
@@ -9,8 +9,9 @@ export class ConversionElement {
   result:number
   tax:number
   constructor(response:Conversion,amount:number) {
-    this.conversionDate=new Date()
-    this.conversionTime= this.conversionDate.getHours()+":"+this.conversionDate.getMinutes()
+    let date=new Date()
+    this.conversionDate=(date.getDay()<9?'0':'') + date.getDay()+'/'+(date.getMonth()<8?'0':'')+(date.getMonth()+1)+'/'+date.getFullYear()
+    this.conversionTime= date.getHours()+":"+date.getMinutes()
     this.result=response.conversion_result
     this.tax=response.conversion_rate
     this.destin=response.target_code

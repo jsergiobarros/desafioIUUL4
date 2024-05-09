@@ -17,8 +17,9 @@ import {RouterOutlet} from "@angular/router";
 import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule} from "./app-routing.module";
 import {FormsModule} from "@angular/forms";
-import { ConvertionsListComponent } from './components/convertions-list/convertions-list.component';
+import { ConversionsListComponent } from './components/conversions-list/conversions-list.component';
 import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import {MatInputModule} from "@angular/material/input";
     ListPageComponent,
     ConvertPageComponent,
     HeaderComponent,
-    ConvertionsListComponent
+    ConversionsListComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,9 @@ import {MatInputModule} from "@angular/material/input";
     AppRoutingModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
