@@ -9,8 +9,8 @@ import {ConversionsListComponent} from "../../components/conversions-list/conver
 })
 export class ConvertPageComponent {
 
-  @ViewChild('conversionList') list: ConversionsListComponent | undefined
-
+  // @ViewChild('conversionList') list: ConversionsListComponent | undefined
+  list = new ConversionsListComponent()
   addItem(event:ConversionElement){
 
     // @ts-ignore

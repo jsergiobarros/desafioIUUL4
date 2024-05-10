@@ -6,7 +6,7 @@
       alt="Currencies Logo"
       src="https://cdn-icons-png.flaticon.com/512/1027/1027961.png"
     />
-    <a class="navbar-brand" (click)="onClick(home,convert,list)" routerLink="/"> Conversor de Moedas</a>
+    <a class="navbar-brand" (click)="onClick(home,convert,list,conversion)" routerLink="/"> Conversor de Moedas</a>
 
 
 
@@ -20,13 +20,16 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav nav-pills me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a #home class="nav-link primary-color list-group-item list-group-item-action" aria-current="page" (click)="onClick(home,convert,list)" routerLink="/">Home</a>
+          <a #home class="nav-link primary-color list-group-item list-group-item-action" aria-current="page" (click)="onClick(home,convert,list,conversion)" routerLink="/">Home</a>
         </li>
         <li class="nav-item">
-          <a #convert class="nav-link primary-color list-group-item list-group-item-action" (click)="onClick(convert,list,home)" routerLink="/convert">Converter</a>
+          <a #convert class="nav-link primary-color list-group-item list-group-item-action" (click)="onClick(convert,list,home,conversion)" routerLink="/convert">Converter</a>
         </li>
         <li class="nav-item">
-          <a #list class="nav-link primary-color list-group-item list-group-item-action" (click)="onClick(list,home,convert)"  routerLink="/list">listar</a>
+          <a #conversion class="nav-link primary-color list-group-item list-group-item-action" (click)="onClick(conversion,convert,list,home)" routerLink="/conversions">Conversões</a>
+        </li>
+        <li class="nav-item">
+          <a #list class="nav-link primary-color list-group-item list-group-item-action" (click)="onClick(list,home,convert,conversion)"  routerLink="/list">listar</a>
         </li>
       </ul>
     </div>

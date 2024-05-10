@@ -21,6 +21,7 @@ import { ConversionsListComponent } from './components/conversions-list/conversi
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSortModule} from "@angular/material/sort";
+import { ConversionsPageComponent } from './pages/conversions-page/conversions-page.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {MatSortModule} from "@angular/material/sort";
     ListPageComponent,
     ConvertPageComponent,
     HeaderComponent,
-    ConversionsListComponent
+    ConversionsListComponent,
+    ConversionsPageComponent
   ],
   imports: [
     BrowserModule,

@@ -7,10 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  onClick(component:HTMLAnchorElement,remove1:HTMLAnchorElement,remove2:HTMLAnchorElement){
+  onClick(component:HTMLAnchorElement,remove1:HTMLAnchorElement,remove2:HTMLAnchorElement,remove3:HTMLAnchorElement){
     component.classList.add('active')
     remove1.classList.remove('active')
     remove2.classList.remove('active')
+    remove3.classList.remove('active')
 
   }
 }

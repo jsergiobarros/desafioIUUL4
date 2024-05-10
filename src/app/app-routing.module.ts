@@ -3,11 +3,13 @@ import {NgModule} from "@angular/core";
 import {LandingPageComponent} from "./pages/landing-page/landing-page.component";
 import {ConvertPageComponent} from "./pages/convert-page/convert-page.component";
 import {ListPageComponent} from "./pages/list-page/list-page.component";
+import {ConversionsPageComponent} from "./pages/conversions-page/conversions-page.component";
 
 
 const routes:Routes=[
   {path:'', component:LandingPageComponent},
   {path:'convert', component:ConvertPageComponent},
+  {path:'conversions', component:ConversionsPageComponent},
   {path:'list', component:ListPageComponent}
 ]
 
