@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { CurrenciesListComponent } from './components/currenciesList/currencies-list/currencies-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from "@angular/material/paginator";
@@ -22,18 +21,19 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSortModule} from "@angular/material/sort";
 import { ConversionsPageComponent } from './pages/conversions-page/conversions-page.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CurrenciesListComponent,
     CurrencieConverterComponent,
     LandingPageComponent,
     ListPageComponent,
     ConvertPageComponent,
     HeaderComponent,
     ConversionsListComponent,
-    ConversionsPageComponent
+    ConversionsPageComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
 import {ConversionElement} from "../../../assets/classes/conversion-element";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource, MatTableModule} from "@angular/material/table";
@@ -10,11 +10,11 @@ import {MatTableDataSource, MatTableModule} from "@angular/material/table";
 })
 export class ConversionsListComponent implements AfterViewInit {
   conversions:ConversionElement[]
-  displayedColumns: string[] = ['data', 'dataHour', 'valor', 'moedaOrig','moedaDest','resultado','taxa','açoes'];
+  @Input() displayedColumns: string[] = ['data', 'dataHour', 'valor', 'moedaOrig','moedaDest','resultado','taxa','açoes'];
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
 
-  dataSource :  MatTableDataSource<ConversionElement>
+  @Input() dataSource :  MatTableDataSource<ConversionElement>
   ngAfterViewInit() {
 
     this.dataSource.paginator = this.paginator as MatPaginator;
@@ -27,9 +27,9 @@ export class ConversionsListComponent implements AfterViewInit {
       this.conversions=JSON.parse(localStorage.getItem('conversionList') as string).list
     this.dataSource = new MatTableDataSource<ConversionElement>(this.conversions);
   }
-  print(i:ConversionElement){
+  addItem(i:ConversionElement){
     this.conversions.push(i)
-    localStorage.setItem('conversionList',JSON.stringify({list:this.conversions}))
+    localStorage.setItem('conversionList',JSON.stringify({list:this.conversions})) //criar como servico
     this.dataSource = new MatTableDataSource<ConversionElement>(this.conversions);
   }
 

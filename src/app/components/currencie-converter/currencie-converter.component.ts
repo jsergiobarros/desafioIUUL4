@@ -9,11 +9,14 @@ import {ConversionElement} from "../../../assets/classes/conversion-element";
   templateUrl: './currencie-converter.component.html',
   styleUrls: ['./currencie-converter.component.css']
 })
+
 export class CurrencieConverterComponent {
   @Input()  codes:Array<[String,String]>[]=[]
 
   origem='BRL'
   destino='USD'
+
+
 
   @Output() conversionEvent=new EventEmitter<ConversionElement>()
 
@@ -45,7 +48,7 @@ export class CurrencieConverterComponent {
       button.disabled=true
   }
   convert(){
-    let input=document.getElementById("input-element")as HTMLInputElement
+    let input=document.getElementById("input-element")as HTMLInputElement //mudar para bindings
     this.exchangeService.getCurrencyDuo(this.origem,this.destino,input.value).subscribe(e=>{
       this.conversionEvent.emit(new ConversionElement(e,parseInt( input.value)))
       input.value=''

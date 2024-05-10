@@ -14,7 +14,7 @@ export class ConvertPageComponent {
   addItem(event:ConversionElement){
 
     // @ts-ignore
-    this.list.print(event)
+    this.list.addItem(event)
 
 
 
