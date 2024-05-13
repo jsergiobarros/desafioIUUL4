@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
-import {ConversionElement} from "../../../assets/classes/conversion-element";
+import {ConversionElement} from "../../elements/classes/conversion-element";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource, MatTableModule} from "@angular/material/table";
 

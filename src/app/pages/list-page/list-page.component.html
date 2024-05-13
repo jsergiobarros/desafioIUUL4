@@ -4,7 +4,7 @@
   <mat-label>Filtro</mat-label>
   <input #input id="input" autocomplete="off" matInput (keyup)="filtro(input)"  value="">
 </mat-form-field>
-<div *ngIf="codes.length>0"   class="mat-elevation-z8">
+<div  *ngIf="show"   class="mat-elevation-z8">
   <table *ngIf="codes.length>0"  mat-table class="mat-elevation-z8" matSort (matSortChange)="announceSortChange($event)"  [dataSource]="dataSource">
 
     <!-- Position Column -->

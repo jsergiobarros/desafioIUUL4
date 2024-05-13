@@ -1,8 +1,8 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {ExchangeService} from "../../../assets/service/exchange/exchange.service";
+import {ExchangeService} from "../../service/exchange/exchange.service";
 import {MatInputModule} from "@angular/material/input";
-import {Conversion} from "../../../assets/models/conversion";
-import {ConversionElement} from "../../../assets/classes/conversion-element";
+import {Conversion} from "../../models/conversion";
+import {ConversionElement} from "../../elements/classes/conversion-element";
 
 @Component({
   selector: 'app-currencie-converter',

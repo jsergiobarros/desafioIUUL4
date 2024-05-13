@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {ConversionElement} from "../../../assets/classes/conversion-element";
+import {ConversionElement} from "../../elements/classes/conversion-element";
 import {ConversionsListComponent} from "../../components/conversions-list/conversions-list.component";
 
 @Component({

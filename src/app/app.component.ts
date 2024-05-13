@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {SupportedCodes} from "../assets/models/supported-codes";
-import {ExchangeService} from "../assets/service/exchange/exchange.service";
+import {SupportedCodes} from "./models/supported-codes";
+import {ExchangeService} from "./service/exchange/exchange.service";
 
 @Component({
   selector: 'app-root',

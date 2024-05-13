@@ -10,3 +10,24 @@ button:hover{
   background-color: lightskyblue;
   color: white;
 }
+
+
+.container {
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid black;
+  overflow-x: scroll;
+}
+table{
+  overflow-x: scroll;
+  width: 100px;
+}
+/*.bloco{*/
+/*  position: fixed;*/
+/*  width: 200px;*/
+/*  overflow:hidden;*/
+/*  overflow-x: scroll;*/
+/*}*/
+
+
+

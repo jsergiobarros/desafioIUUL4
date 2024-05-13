@@ -1,41 +1,52 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {ExchangeService} from "../../../assets/service/exchange/exchange.service";
-import {SupportedCodes} from "../../../assets/models/supported-codes";
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {ExchangeService} from "../../service/exchange/exchange.service";
+import {SupportedCodes} from "../../models/supported-codes";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort, Sort} from "@angular/material/sort";
 import {LiveAnnouncer} from "@angular/cdk/a11y";
+import {StorageService} from "../../service/storage/storage.service";
 
 @Component({
   selector: 'app-list-page',
   templateUrl: './list-page.component.html',
   styleUrls: ['./list-page.component.css']
 })
-export class ListPageComponent {
+export class ListPageComponent implements AfterViewInit{
   show:boolean=false
   codes:SupportedCodes[]=[]
 
   displayedColumns: string[] = ['code', 'description'];
-  dataSource: MatTableDataSource<SupportedCodes>  ;
+  dataSource= new MatTableDataSource<SupportedCodes>()  ;
   constructor(
     private exchangeService:ExchangeService,
+    private storageService:StorageService,
     private _liveAnnouncer: LiveAnnouncer
 ) {
-    if(!localStorage.getItem('codes'))
+
+
+
+    if(!storageService.get('codes'))
+
       this.exchangeService.getCurrencyList().subscribe(e=> {
         let codes: SupportedCodes[] = []
         e.supported_codes.map((x) => {
           // @ts-ignore
           codes.push({code: x[0], description: x[1]})
         })
-        localStorage.setItem('codes',JSON.stringify({list:codes}))
-        this.show=true
+        storageService.set('codes',JSON.stringify({list:codes}))
+        // this.show=true
+        // this.codes=JSON.parse(this.storageService.get('codes') as string).list
+        // this.dataSource=new MatTableDataSource<SupportedCodes>(codes)
+        location.reload()
       })
-    else
+    else{
       this.show=true
-    this.codes=JSON.parse(localStorage.getItem('codes') as string).list
-    this.dataSource=new MatTableDataSource<SupportedCodes>(this.codes)
+      this.codes=JSON.parse(this.storageService.get('codes') as string).list
+      this.dataSource=new MatTableDataSource<SupportedCodes>(this.codes)
+    }
   }
+
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   @ViewChild(MatSort) sort: MatSort | undefined;
   ngAfterViewInit() {
@@ -44,6 +55,17 @@ export class ListPageComponent {
     this.dataSource.sort = this.sort as MatSort;
   }
 
+  async busca():Promise<SupportedCodes[]>{
+    let codes: SupportedCodes[] = []
+    await this.exchangeService.getCurrencyList().subscribe(e=> {
+
+      e.supported_codes.map((x) => {
+        // @ts-ignore
+        codes.push({code: x[0], description: x[1]})
+      })})
+    console.log(codes)
+    return codes
+  }
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
