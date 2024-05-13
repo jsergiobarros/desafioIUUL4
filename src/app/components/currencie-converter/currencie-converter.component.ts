@@ -1,10 +1,11 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {ExchangeService} from "../../service/exchange/exchange.service";
 import {MatInputModule} from "@angular/material/input";
 import {Conversion} from "../../models/conversion";
 import {ConversionElement} from "../../elements/classes/conversion-element";
 import {MatTableDataSource} from "@angular/material/table";
 import {StorageService} from "../../service/storage/storage.service";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-currencie-converter',
@@ -31,8 +32,9 @@ export class CurrencieConverterComponent {
     else
       this.conversions=JSON.parse(storageService.get('conversionList') as string).list
 
-
   }
+
+
   changeCurencie(novo:string, onde:string){
     if(onde==="origem"){
       this.origem=novo
@@ -40,15 +42,11 @@ export class CurrencieConverterComponent {
     if(onde==="destino"){
       this.destino=novo
     }
-
   }
 
-  onValueType():void{
-    let input=document.getElementById("input-element")as HTMLInputElement
-    let button=document.getElementById('converter') as HTMLButtonElement
+  onValueType(input:HTMLInputElement,button:HTMLButtonElement):void{
     if(parseInt( input.value)>0)
       button.disabled=false
-
     else
       button.disabled=true
   }
@@ -56,12 +54,10 @@ export class CurrencieConverterComponent {
     this.conversions.push(i)
     this.storageService.set('conversionList',JSON.stringify({list:this.conversions}))
   }
-  convert(){
-    let input=document.getElementById("input-element")as HTMLInputElement //mudar para bindings
+  convert(input:HTMLInputElement,button:HTMLButtonElement){
     this.exchangeService.getCurrencyDuo(this.origem,this.destino,input.value).subscribe(e=>{
       this.addItem(new ConversionElement(e,parseInt( input.value)))
       input.value=''
-      let button=document.getElementById('converter') as HTMLButtonElement
       button.disabled=true
     })
 

@@ -19,8 +19,9 @@
     <mat-label>Valor *</mat-label>
     <input matInput
            id="input-element"
+           #inputElement
            type='number'
-           (keyup)="onValueType()"
+           (keyup)="onValueType(inputElement,conv)"
            value=""
            autocomplete="off"
 
@@ -31,7 +32,7 @@
 
 
   <p></p>
-  <button id="converter" disabled style="border-radius: 2vh" mat-stroked-button (click)="convert()">Converter</button>
+  <button #conv id="converter" disabled style="border-radius: 2vh" mat-stroked-button (click)="convert(inputElement,conv)">Converter</button>
 
   <div *ngIf="" style="padding-top: 20px;border-top: 1px black solid;margin-top: 20px">
     <h6> em {{origem}} equivale a </h6>
