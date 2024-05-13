@@ -16,7 +16,6 @@ import {RouterOutlet} from "@angular/router";
 import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule} from "./app-routing.module";
 import {FormsModule} from "@angular/forms";
-import { ConversionsListComponent } from './components/conversions-list/conversions-list.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSortModule} from "@angular/material/sort";
@@ -31,7 +30,6 @@ import { TableComponent } from './components/table/table.component';
     ListPageComponent,
     ConvertPageComponent,
     HeaderComponent,
-    ConversionsListComponent,
     ConversionsPageComponent,
     TableComponent
   ],

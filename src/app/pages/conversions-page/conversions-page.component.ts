@@ -27,11 +27,7 @@ export class ConversionsPageComponent implements AfterViewInit {
       this.conversions=JSON.parse(localStorage.getItem('conversionList') as string).list
     this.dataSource = new MatTableDataSource<ConversionElement>(this.conversions);
   }
-  addItem(i:ConversionElement){
-    this.conversions.push(i)
-    localStorage.setItem('conversionList',JSON.stringify({list:this.conversions})) //criar como servico
-    this.dataSource = new MatTableDataSource<ConversionElement>(this.conversions);
-  }
+
 
   removeItem(i:number){
     this.conversions.splice(i,1)

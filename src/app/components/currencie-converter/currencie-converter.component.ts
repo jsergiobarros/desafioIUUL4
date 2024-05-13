@@ -3,6 +3,8 @@ import {ExchangeService} from "../../service/exchange/exchange.service";
 import {MatInputModule} from "@angular/material/input";
 import {Conversion} from "../../models/conversion";
 import {ConversionElement} from "../../elements/classes/conversion-element";
+import {MatTableDataSource} from "@angular/material/table";
+import {StorageService} from "../../service/storage/storage.service";
 
 @Component({
   selector: 'app-currencie-converter',
@@ -11,21 +13,24 @@ import {ConversionElement} from "../../elements/classes/conversion-element";
 })
 
 export class CurrencieConverterComponent {
-  @Input()  codes:Array<[String,String]>[]=[]
-
+  codes:Array<[String,String]>[]=[]
+  conversions:ConversionElement[]
   origem='BRL'
   destino='USD'
 
 
-
-  @Output() conversionEvent=new EventEmitter<ConversionElement>()
-
   constructor(
+    private storageService:StorageService,
     private exchangeService : ExchangeService
   ) {
     // @ts-ignore
     this.exchangeService.getCurrencyList().subscribe(e=>{
       this.codes= e.supported_codes})
+    if(!storageService.get('conversionList'))
+      this.conversions=[]
+    else
+      this.conversions=JSON.parse(storageService.get('conversionList') as string).list
+
 
   }
   changeCurencie(novo:string, onde:string){
@@ -47,10 +52,14 @@ export class CurrencieConverterComponent {
     else
       button.disabled=true
   }
+  addItem(i:ConversionElement){
+    this.conversions.push(i)
+    this.storageService.set('conversionList',JSON.stringify({list:this.conversions}))
+  }
   convert(){
     let input=document.getElementById("input-element")as HTMLInputElement //mudar para bindings
     this.exchangeService.getCurrencyDuo(this.origem,this.destino,input.value).subscribe(e=>{
-      this.conversionEvent.emit(new ConversionElement(e,parseInt( input.value)))
+      this.addItem(new ConversionElement(e,parseInt( input.value)))
       input.value=''
       let button=document.getElementById('converter') as HTMLButtonElement
       button.disabled=true

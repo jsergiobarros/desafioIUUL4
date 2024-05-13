@@ -26,6 +26,6 @@ export class ExchangeService {
     // @ts-ignore
 
     // return this.http.get(`${environment.apiUrl}/${environment.apiKey}/pair/${origem}/${destino}/${valor}`)
-    return this.http.get(`https://v6.exchangerate-api.com/v6/d69dced7338e59b2930d2539/codes/pair/${origem}/${destino}/${valor}`)
+    return this.http.get(`https://v6.exchangerate-api.com/v6/d69dced7338e59b2930d2539/pair/${origem}/${destino}/${valor}`)
   }
 }

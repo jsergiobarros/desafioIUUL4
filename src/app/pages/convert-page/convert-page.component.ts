@@ -1,6 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
 import {ConversionElement} from "../../elements/classes/conversion-element";
-import {ConversionsListComponent} from "../../components/conversions-list/conversions-list.component";
 
 @Component({
   selector: 'app-convert-page',
@@ -9,17 +8,10 @@ import {ConversionsListComponent} from "../../components/conversions-list/conver
 })
 export class ConvertPageComponent {
 
-  // @ViewChild('conversionList') list: ConversionsListComponent | undefined
-  list = new ConversionsListComponent()
-  addItem(event:ConversionElement){
+addItem(i:any){
+  console.log(i)
+}
 
-    // @ts-ignore
-    this.list.addItem(event)
-
-
-
-
-  }
 
 
 }
