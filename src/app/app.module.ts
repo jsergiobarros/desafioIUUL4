@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
-import { CurrencieConverterComponent } from './components/currencie-converter/currencie-converter.component';
 import {MatTableModule} from "@angular/material/table";
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { ListPageComponent } from './pages/list-page/list-page.component';
@@ -20,18 +19,19 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSortModule} from "@angular/material/sort";
 import { ConversionsPageComponent } from './pages/conversions-page/conversions-page.component';
-import { TableComponent } from './components/table/table.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CurrencieConverterComponent,
     LandingPageComponent,
     ListPageComponent,
     ConvertPageComponent,
     HeaderComponent,
     ConversionsPageComponent,
-    TableComponent
+    DeleteDialogComponent
+
   ],
   imports: [
     BrowserModule,
@@ -47,7 +47,8 @@ import { TableComponent } from './components/table/table.component';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatSortModule
+    MatSortModule,
+    MatDialogModule
 
   ],
   providers: [],

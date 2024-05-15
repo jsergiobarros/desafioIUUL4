@@ -55,17 +55,6 @@ export class ListPageComponent implements AfterViewInit{
     this.dataSource.sort = this.sort as MatSort;
   }
 
-  async busca():Promise<SupportedCodes[]>{
-    let codes: SupportedCodes[] = []
-    await this.exchangeService.getCurrencyList().subscribe(e=> {
-
-      e.supported_codes.map((x) => {
-        // @ts-ignore
-        codes.push({code: x[0], description: x[1]})
-      })})
-    console.log(codes)
-    return codes
-  }
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);

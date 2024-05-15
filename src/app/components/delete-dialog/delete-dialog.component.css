@@ -1,0 +1,22 @@
+button{
+  margin-left: 40px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 2vh;
+}
+#close{
+  background-color: lightskyblue;
+}
+#close:hover{
+  background-color: blue;
+  color: white;
+}
+
+#delete{
+  background-color: red;
+}
+#delete:hover{
+  background-color: darkred;
+  color: white;
+}
+

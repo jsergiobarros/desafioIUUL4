@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {ConversionElement} from "../../elements/classes/conversion-element";
 import {StorageService} from "../../service/storage/storage.service";
 import {ExchangeService} from "../../service/exchange/exchange.service";
+import {LastConversion} from "../../models/last-conversion";
 
 @Component({
   selector: 'app-convert-page',
@@ -15,7 +16,9 @@ export class ConvertPageComponent {
   conversions:ConversionElement[]
   origem='BRL'
   destino='USD'
-
+  lastConversion:LastConversion | undefined
+  private _buttonDisable:boolean=true
+  inputElement:string=''
 
   constructor(
     private storageService:StorageService,
@@ -41,27 +44,44 @@ export class ConvertPageComponent {
     }
   }
 
-  onValueType(input:HTMLInputElement,button:HTMLButtonElement):void{
-    if(parseInt( input.value)>0)
-      button.disabled=false
+  onValueType():void{
+
+    if(parseInt( this.inputElement)>0)
+      this.buttonDisable=false
     else
-      button.disabled=true
+      this.buttonDisable=true
+
   }
   addItem(i:ConversionElement){
     this.conversions.push(i)
     this.storageService.set('conversionList',JSON.stringify({list:this.conversions}))
   }
-  convert(input:HTMLInputElement,button:HTMLButtonElement){
-    this.exchangeService.getCurrencyDuo(this.origem,this.destino,input.value).subscribe(e=>{
-      this.addItem(new ConversionElement(e,parseInt( input.value)))
-      input.value=''
-      button.disabled=true
+  convert(){
+    this.exchangeService.getCurrencyDuo(this.origem,this.destino,this.inputElement).subscribe(e=>{
+      this.addItem(new ConversionElement(e,parseInt( this.inputElement)))
+      this.lastConversion={
+        valor:this.inputElement,
+        resultado:e.conversion_result.toString(),
+        origem: this.origem,
+        destino: this.destino,
+        taxa:e.conversion_rate.toString()}
+      this.inputElement=''
+      this.buttonDisable=true
+
     })
 
 
   }
+  clear():void{
+    this.lastConversion=undefined
+  }
 
 
+  get buttonDisable(): boolean {
+    return this._buttonDisable;
+  }
 
-
+  set buttonDisable(value: boolean) {
+    this._buttonDisable = value;
+  }
 }

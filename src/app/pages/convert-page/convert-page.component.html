@@ -21,9 +21,10 @@
     <mat-label>Valor *</mat-label>
     <input matInput
            id="input-element"
-           #inputElement
+           [(ngModel)]="inputElement"
+           #input
            type='number'
-           (keyup)="onValueType(inputElement,conv)"
+           (keyup)="onValueType()"
            value=""
            autocomplete="off"
 
@@ -31,16 +32,15 @@
     <span matPrefix>{{origem}}</span>
   </mat-form-field>
 
-
-
   <p></p>
-  <button #conv id="converter" disabled style="border-radius: 2vh" mat-stroked-button (click)="convert(inputElement,conv)">Converter</button>
+  <button #conv id="converter"  [disabled]="buttonDisable" style="border-radius: 2vh" mat-stroked-button  (click)="convert()">Converter</button>
 
-  <div *ngIf="" style="padding-top: 20px;border-top: 1px black solid;margin-top: 20px">
-    <h6> em {{origem}} equivale a </h6>
+  <div *ngIf="lastConversion" style="padding-top: 20px;border-top: 1px black solid;margin-top: 20px">
+    <h6> {{lastConversion.valor}} em {{lastConversion.origem}} equivale a </h6>
 
-    <h2>em {{destino}}</h2>
-    <h5> taxa de conversão utilizada </h5>
+    <h2>{{lastConversion.resultado}} em {{lastConversion.destino}}</h2>
+    <h6> Taxa de conversão utilizada {{lastConversion.taxa}} </h6>
+    <button style="border-radius: 2vh" mat-stroked-button (click)="clear()">limpar</button>
   </div>
 
 
