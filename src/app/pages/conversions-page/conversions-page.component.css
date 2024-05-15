@@ -10,3 +10,11 @@ button:hover{
   background-color: lightskyblue;
   color: white;
 }
+#bloco{
+  width: 95%;
+  /*overflow: hidden;*/
+  overflow-x: scroll;
+  overflow-y: scroll;
+  position: fixed;
+  left: 10px;
+}
