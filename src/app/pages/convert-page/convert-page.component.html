@@ -22,9 +22,9 @@
     <input matInput
            id="input-element"
            [(ngModel)]="inputElement"
-           #input
            type='number'
            (keyup)="onValueType()"
+           (keyup.enter)="convert()"
            value=""
            autocomplete="off"
 
@@ -33,7 +33,7 @@
   </mat-form-field>
 
   <p></p>
-  <button #conv id="converter"  [disabled]="buttonDisable" style="border-radius: 2vh" mat-stroked-button  (click)="convert()">Converter</button>
+  <button #conv id="converter"  [disabled]="buttonDisable" style="border-radius: 2vh" mat-stroked-button (keyup.enter)="convert()"  (click)="convert()">Converter</button>
 
   <div *ngIf="lastConversion" style="padding-top: 20px;border-top: 1px black solid;margin-top: 20px">
     <h6> {{lastConversion.valor}} em {{lastConversion.origem}} equivale a </h6>

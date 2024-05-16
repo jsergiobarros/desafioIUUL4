@@ -19,13 +19,13 @@ export class ExchangeService {
 
     // @ts-ignore
 
-     // return this.http.get(`${environment.apiUrl}/${environment.apiKey}/codes/`)
-    return this.http.get(`https://v6.exchangerate-api.com/v6/d69dced7338e59b2930d2539/codes/`)
+     return this.http.get(`${environment.apiUrl}/${environment.apiKey}/codes/`)
+    // return this.http.get(`https://v6.exchangerate-api.com/v6/d69dced7338e59b2930d2539/codes/`)
   }
   getCurrencyDuo(origem:String,destino:String,valor:String):Observable<Conversion>{
     // @ts-ignore
 
-    // return this.http.get(`${environment.apiUrl}/${environment.apiKey}/pair/${origem}/${destino}/${valor}`)
-    return this.http.get(`https://v6.exchangerate-api.com/v6/d69dced7338e59b2930d2539/pair/${origem}/${destino}/${valor}`)
+    return this.http.get(`${environment.apiUrl}/${environment.apiKey}/pair/${origem}/${destino}/${valor}`)
+    // return this.http.get(`https://v6.exchangerate-api.com/v6/d69dced7338e59b2930d2539/pair/${origem}/${destino}/${valor}`)
   }
 }

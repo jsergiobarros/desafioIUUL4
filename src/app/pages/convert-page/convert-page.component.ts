@@ -11,7 +11,6 @@ import {LastConversion} from "../../models/last-conversion";
 })
 export class ConvertPageComponent {
 
-
   codes:Array<[String,String]>[]=[]
   conversions:ConversionElement[]
   origem='BRL'
@@ -19,7 +18,6 @@ export class ConvertPageComponent {
   lastConversion:LastConversion | undefined
   private _buttonDisable:boolean=true
   inputElement:string=''
-
   constructor(
     private storageService:StorageService,
     private exchangeService : ExchangeService
@@ -31,32 +29,28 @@ export class ConvertPageComponent {
       this.conversions=[]
     else
       this.conversions=JSON.parse(storageService.get('conversionList') as string).list
-
   }
 
-
   changeCurencie(novo:string, onde:string){
-    if(onde==="origem"){
+    if(onde==="origem")
       this.origem=novo
-    }
-    if(onde==="destino"){
+    if(onde==="destino")
       this.destino=novo
-    }
   }
 
   onValueType():void{
-
     if(parseInt( this.inputElement)>0)
       this.buttonDisable=false
     else
       this.buttonDisable=true
-
   }
   addItem(i:ConversionElement){
     this.conversions.push(i)
     this.storageService.set('conversionList',JSON.stringify({list:this.conversions}))
   }
-  convert(){
+  convert():void{
+    if (this.inputElement==='')
+      return
     this.exchangeService.getCurrencyDuo(this.origem,this.destino,this.inputElement).subscribe(e=>{
       this.addItem(new ConversionElement(e,parseInt( this.inputElement)))
       this.lastConversion={
@@ -67,15 +61,11 @@ export class ConvertPageComponent {
         taxa:e.conversion_rate.toString()}
       this.inputElement=''
       this.buttonDisable=true
-
     })
-
-
   }
   clear():void{
     this.lastConversion=undefined
   }
-
 
   get buttonDisable(): boolean {
     return this._buttonDisable;
